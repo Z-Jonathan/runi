@@ -1,17 +1,10 @@
-import { View, Text, Image } from 'react-native'
 import React from 'react'
-
+import AppNavigator from '@/components/AppNavigator';
 
 const App = () => {
   return (
-    <View className="flex flex-row items-center">
-        <Image
-        source={require('@/assets/images/Logo.png')}
-        className=""
-        />
-        <Text className="text-xl">App</Text>
-    </View>
-  )
+    <AppNavigator />
+  );
 }
 
 export default App
