@@ -2,6 +2,7 @@ const express = require('express');
 const bcrypt = require('bcryptjs');
 const jwt = require('jsonwebtoken');
 const cors = require('cors');
+const verifyToken = require('./middleware/verifyToken');
 
 const app = express();
 const PORT = process.env.PORT || 5001;
@@ -60,6 +61,10 @@ app.post('/login', async (req, res) => {
 
     // Send the token back to the client
     res.status(200).json({ token });
+});
+
+app.get('/protected', verifyToken, (req, res) => {
+    res.json({ message: 'Access to protected route granted', user: req.user });
 });
 
 app.listen(PORT, () => console.log(`Server running on port ${PORT}`));
