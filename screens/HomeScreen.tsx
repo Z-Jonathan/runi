@@ -11,30 +11,32 @@ const HomeScreen = () => {
   const navigation = useNavigation<HomeScreenNavigationProp>();
 
   return (
-    <View className="flex-1 justify-between items-center">
-      <View className="items-center mt-20">
-        <Image
-          source={require('@/assets/images/Logo.png')}
-          className="w-20 h-20"
-          resizeMode="contain" 
-        />
-        <Text className="text-2xl font-bold mt-2 tracking-wide">RUNI</Text>
-      </View>
+    <View className="flex-1 items-center justify-center bg-white">
+      {/* Logo */}
+      <Image
+        source={require('@/assets/images/Logo.png')} // replace with your logo path
+        className="w-32 h-32 mb-4"
+        resizeMode="contain"
+      />
+      
+      {/* App Name */}
+      <Text className="text-3xl font-bold mb-8">Coordify</Text>
 
-      <View className="items-center w-5/6 mb-10">
-        <Pressable
-          className="bg-blue-400 p-3 rounded-lg items-center w-full mb-5"
-          onPress={() => navigation.navigate("Signup")}
-        >
-          <Text className="text-lg font-bold text-white">Join Runi</Text>
-        </Pressable>
-        <Pressable 
-          className="items-center w-full"
-          onPress={() => navigation.navigate('Login')}
-        >
-          <Text className="text-lg font-bold">Log In</Text>
-        </Pressable>
-      </View>
+      {/* Login Button */}
+      <Pressable 
+        className="w-64 p-4 bg-black rounded-full mb-4"
+        onPress={() => navigation.navigate("Login")}
+      >
+        <Text className="text-white text-lg text-center">Login</Text>
+      </Pressable>
+
+      {/* Signup Button */}
+      <Pressable 
+        className="w-64 p-4 bg-white rounded-full border border-gray-400"
+        onPress={() => navigation.navigate("Signup")}
+      >
+        <Text className="text-black text-lg text-center">Sign Up</Text>
+      </Pressable>
     </View>
   );
 }
